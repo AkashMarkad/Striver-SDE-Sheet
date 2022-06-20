@@ -47,3 +47,47 @@ class Solution {
         }
     }
 }
+
+
+// Approach 2 : 
+// By using one extra Array for sorting 
+
+
+
+public static int[] ninjaAndSortedArrays(int nums1[], int nums2[], int m, int n) {
+        // Write your code here.
+        
+        int ans[] = new int[m+n];
+        int i=0,j=0,k=0;
+        while(i<m && j<n){
+            if(nums1[i]<=nums2[j]){
+                ans[k]=nums1[i];
+                i++;
+            }
+            else{
+                ans[k] = nums2[j];
+                j++;
+            }
+            k++;
+        }
+        while(j!=n){
+             // System.out.println(k);
+            ans[k] = nums2[j];
+            j++;
+            k++;
+        }
+        while(i!=m){
+            ans[k] = nums1[i];
+            i++;
+            k++;
+        }
+        k=0;
+       
+        for(int l=0;l<ans.length;l++){
+            nums1[l] = ans[k];
+            k++;
+        }
+        return ans;
+    }
+}
+
