@@ -1,4 +1,5 @@
 // Approach: Gap Method
+// LeetCode Problem : https://leetcode.com/problems/merge-sorted-array/
 
 // Initially take the gap as (m+n)/2;
 // Take as a pointer1 = 0 and pointer2 = gap.
