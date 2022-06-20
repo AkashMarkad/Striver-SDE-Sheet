@@ -1,0 +1,49 @@
+// Approach: Gap Method
+
+// Initially take the gap as (m+n)/2;
+// Take as a pointer1 = 0 and pointer2 = gap.
+// Run a oop from pointer1 &  pointer2 to  m+n and whenever arr[pointer2]<arr[pointer1], just swap those.
+// After completion of the loop reduce the gap as gap=gap/2.
+// Repeat the process until gap>0.
+
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        
+        int gap = (int)Math.ceil((double)(n+m)/2.0);
+        while(gap>0){
+            int i=0;
+            int j=gap;
+            while(j<(n+m)){
+                if(j<m && nums1[i]>nums1[j]){
+                    int temp = nums1[i];
+                    nums1[i] = nums1[j];
+                    nums1[j] = temp;
+                }
+                else if(j>=m && i<m && nums1[i]> nums2[j-m]){
+                    int temp = nums1[i];
+                    nums1[i] = nums2[j-m];
+                    nums2[j-m] = temp;
+                }
+                else if(j>=m && i>=m && nums2[i-m]>nums2[j-m]){
+                    int temp = nums2[i-m];
+                    nums2[i-m] = nums2[j-m];
+                    nums2[j-m] = temp;
+                }
+                j++;
+                i++;
+            }
+            if(gap==1){
+                gap=0;
+            }
+            else{
+                gap = (int)Math.ceil((double)gap/2.0);
+            }
+        }
+        int k = 0;
+        for(int i : nums2){
+            nums1[m+k] = i;
+            k++; 
+        }
+    }
+}
