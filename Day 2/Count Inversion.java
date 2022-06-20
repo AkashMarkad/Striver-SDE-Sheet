@@ -1,4 +1,4 @@
-// <b>CodeStudio Problem Link</b> : https://www.codingninjas.com/codestudio/problems/615?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
+<b>CodeStudio Problem Link</b> : https://www.codingninjas.com/codestudio/problems/615?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website
 // Count Inverion In this problem arr[i]>arr[i+1]
 // Now we calculate how many pairs having the the left element is greater than right
 // If We calculate using brute force then it goes time complexity higher O(n*n)
