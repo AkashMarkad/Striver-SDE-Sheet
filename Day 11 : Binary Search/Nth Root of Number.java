@@ -36,5 +36,8 @@ public class Solution {
                 high = mid;
         }
         return low;
+        
+//         It can be one answer
+//         return Math.pow(m,(double)(1.0/n));
     }
 }
