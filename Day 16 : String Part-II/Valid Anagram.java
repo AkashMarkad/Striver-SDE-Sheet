@@ -89,3 +89,24 @@ class Solution {
     }
 }
 
+// Approach 4: using XOR
+// Time Complexity - O(N)
+// Space Complexity - O(1)
+
+// Code:
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        
+        if(s.length() != t.length())    return false;
+        
+        int res1 = 0 , res2 = 0;
+        
+        for(int i=0;i<s.length();i++){
+            res1 ^= ((1<<(s.charAt(i)-'a'+1))^(1<<(t.charAt(i)-'a'+1)));
+            res2 += ((1<<(s.charAt(i)-'a'+1))-(1<<(t.charAt(i)-'a'+1)));
+        }
+        
+        return res1==0 && res2==0;
+    }
+}
