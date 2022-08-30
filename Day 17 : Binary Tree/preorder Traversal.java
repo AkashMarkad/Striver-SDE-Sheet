@@ -49,3 +49,52 @@ class Solution {
         
     }
 }
+
+// Approach 2: Iterative
+// Inorder-> Left Root Right
+
+// Use stack 
+
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+// Code:
+
+/*
+	
+	Following is the Binary Tree node structure:
+
+	public class TreeNode {
+	    int data;
+	    TreeNode left;
+	    TreeNode right;
+	    TreeNode() {}
+	    TreeNode(int val) { this.data = val; }
+	    TreeNode(int val, TreeNode left, TreeNode right) {
+	       this.data = val;
+	        this.left = left;
+	        this.right = right;
+	    }
+	}
+
+*/
+import java.util.*;
+public class Solution {
+    public static List < Integer > getPreOrderTraversal(TreeNode root) {
+    	// Write your code here.
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<TreeNode> st = new Stack<>();
+        if(root==null)    return ans;
+        st.push(root);
+        
+        while(!st.isEmpty()){
+            TreeNode node = st.pop();
+            ans.add(node.data);
+            if(node.right!=null)    st.push(node.right);
+            if(node.left!=null)    st.push(node.left);
+            
+        }
+        
+        return ans;
+    }
+}
