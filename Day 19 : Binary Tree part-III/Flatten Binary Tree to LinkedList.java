@@ -86,3 +86,51 @@ class Solution {
         }
     }
 }
+
+
+// CodingStudio Solution
+
+import java.util.* ;
+import java.io.*; 
+/************************************************************
+
+    Following is the TreeNode class structure.
+
+	class TreeNode<T> 
+	{
+	    public T data;
+	    public TreeNode<T> left;
+	    public TreeNode<T> right;
+
+	    TreeNode(T data) 
+	    {
+	        this.data = data;
+	        left = null;
+	        right = null;
+	    }
+	}
+
+************************************************************/
+
+public class Solution 
+{
+    public static TreeNode<Integer> flattenBinaryTree(TreeNode<Integer> root)
+    {
+        // Write your code here.
+        TreeNode<Integer> cur = root;
+        TreeNode<Integer> pre = cur;
+        while(cur != null){
+            if(cur.left != null){
+                TreeNode<Integer> runner = cur.left;
+                while(runner.right != null){
+                    runner = runner.right;
+                }
+                runner.right = cur.right;
+                cur.right = cur.left;
+                cur.left = null;
+            }
+            cur = cur.right;
+        }
+        return pre;
+    }
+}
