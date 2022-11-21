@@ -76,3 +76,57 @@ class Solution
         
     }
 }
+
+
+// Code:
+
+class Node implements Comparator<Node>{
+    int v;
+    int w;
+    Node(int v, int w){
+        this.v = v;
+        this.w = w;
+    }
+    Node(){}
+    @Override 
+    public int compare(Node n1, Node n2){
+        if(n1.w>n2.w){
+            return 1;
+        }
+        if(n1.w<n2.w){
+            return -1;
+        }
+        return 0;
+    }
+}
+class Solution
+{
+    //Function to find sum of weights of edges of the Minimum Spanning Tree.
+    static int spanningTree(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj) 
+    {
+        int key[] = new int[V];
+        boolean mst[] =new boolean[V];
+        // int parent[] = new int[V];
+        // Arrays.fill(parent,-1);
+        Arrays.fill(key,Integer.MAX_VALUE);
+        key[0]=0;
+        PriorityQueue<Node> pq = new PriorityQueue<>(V,new Node());
+        pq.add(new Node(0,key[0]));
+        while(!pq.isEmpty()){
+            int u = pq.poll().v;
+            mst[u] = true;
+            for(ArrayList<Integer> it : adj.get(u)){
+                if(!mst[it.get(0)] && it.get(1)<key[it.get(0)]){
+                    // parent[it.getV()] = u;
+                    key[it.get(0)] = it.get(1);
+                    pq.add(new Node(it.get(0),key[it.get(0)]));
+                }
+            }
+        }
+        
+        int ans=0;
+        for(int i : key) ans+= i;
+        return ans;
+        
+    }
+}
