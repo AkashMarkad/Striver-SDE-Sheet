@@ -1,6 +1,6 @@
 // Next Greater Element 
 
-// Given array we need to find the frist greter elemnt on right
+// Given array we need to find the first greter elemnt on right
 
 // Approach 1: Brute Force
 // Use For loop and check entire array for the first greater element on right 
