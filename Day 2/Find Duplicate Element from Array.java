@@ -11,7 +11,7 @@ LeetCode Problem Link : https://leetcode.com/problems/find-the-duplicate-number/
 // Time Complexity is O(n)
 // Space Coplexity is O(n)
 
-// Third Aprroach is Optimal Appraoch Use Slow and Fast Pointer
+// Third Aprroach is Optimal Approach Use Slow and Fast Pointer
 // Intially slow and fast assign to the first element 
 // slow will move one step and fast will move the two steps 
 // It's found a cycle then we need to one more time traverse by assign fast to the initaial element again
